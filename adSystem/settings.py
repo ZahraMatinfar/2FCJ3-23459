@@ -160,6 +160,13 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 10,
 }
 
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Ad System API',
+    'DESCRIPTION': 'API for handling ads and comments',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+}
+
 
 AUTH_USER_MODEL = 'account.CustomUser'
 
