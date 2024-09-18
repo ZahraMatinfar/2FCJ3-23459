@@ -84,8 +84,8 @@ python manage.py test
 ## OpenAPI/Swagger Documentation
 You can explore the API interactively using Swagger. Access the API documentation at:
 
-
-http://127.0.0.1:8000/api/schema/swagger-ui/
+Schema: http://127.0.0.1:8000/api/schema/
+Doc: http://127.0.0.1:8000/api/docs/
 
 ## Pagination
 Both Ads and Comments use pagination. By default, the page size is set to 10. You can use the page query parameter to navigate between pages:
