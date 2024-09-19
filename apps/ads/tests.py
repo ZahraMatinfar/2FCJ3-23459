@@ -9,69 +9,6 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
-# class AdViewSetTestCase(APITestCase):
-#     def setUp(self):
-#         self.user = User.objects.create_user(email='user@example.com', password='password')
-#         self.client.force_authenticate(user=self.user)
-#         self.ad = Ad.objects.create(title='Test Ad', description='Test description', owner=self.user)
-
-#     def test_create_ad(self):
-#         url = reverse('ad-list')  # Adjust the URL if your name is different
-#         data = {
-#             'title': 'New Ad',
-#             'description': 'Description of the new ad',
-#         }
-#         response = self.client.post(url, data, format='json')
-#         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-#         self.assertEqual(Ad.objects.count(), 2)
-#         self.assertEqual(Ad.objects.latest('id').title, 'New Ad')
-
-#     def test_list_ads(self):
-#         url = reverse('ad-list')  # Adjust the URL if your name is different
-#         response = self.client.get(url, format='json')
-#         self.assertEqual(response.status_code, status.HTTP_200_OK)
-#         print(response.data)
-#         self.assertEqual(len(response.data), 1)
-#         self.assertEqual(response.data[0]['title'], 'Test Ad')
-
-#     def test_ad_owner(self):
-#         url = reverse('ad-list')  # Adjust the URL if your name is different
-#         response = self.client.get(url, format='json')
-#         self.assertEqual(response.status_code, status.HTTP_200_OK)
-#         self.assertEqual(response.data[0]['owner']['email'], self.user.email)
-
-
-# class CommentViewSetTestCase(APITestCase):
-#     def setUp(self):
-#         self.user = User.objects.create_user(email='user@example.com', password='password')
-#         self.ad = Ad.objects.create(title='Test Ad', description='Test description', owner=self.user)
-#         self.client.force_authenticate(user=self.user)
-
-#     def test_create_comment(self):
-#         url = reverse('comments', kwargs={'ad_pk': self.ad.id})
-#         data = {'text': 'This is a new comment'}
-#         response = self.client.post(url, data, format='json')
-#         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-#         self.assertEqual(Comment.objects.count(), 1)
-#         self.assertEqual(Comment.objects.get().text, 'This is a new comment')
-
-#     def test_list_comments(self):
-#         Comment.objects.create(ad=self.ad, user=self.user, text='Existing comment')
-#         url = reverse('comments', kwargs={'ad_pk': self.ad.id})
-#         response = self.client.get(url, format='json')
-#         self.assertEqual(response.status_code, status.HTTP_200_OK)
-#         self.assertEqual(len(response.data), 1)
-#         self.assertEqual(response.data[0]['text'], 'Existing comment')
-
-#     def test_create_comment_duplicate(self):
-#         Comment.objects.create(ad=self.ad, user=self.user, text='Existing comment')
-#         url = reverse('comments', kwargs={'ad_pk': self.ad.id})
-#         data = {'text': 'Existing comment'}
-#         response = self.client.post(url, data, format='json')
-#         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-#         self.assertIn('You have already commented on this ad.', response.data['non_field_errors'])
-
-
 class AdViewSetTestCase(APITestCase):
     def setUp(self):
         # Create a user and log them in
